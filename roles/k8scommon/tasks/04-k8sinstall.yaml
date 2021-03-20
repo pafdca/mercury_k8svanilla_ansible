@@ -1,0 +1,24 @@
+---
+
+# k8s: instalación de paquetes y arranque de servicio kubelet
+
+- name: Repositorio - GPG Key
+  shell: 'sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg'
+  become: yes
+
+- name: Repositorio
+  shell: 'echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list'
+  become: yes
+
+- name: instalacion de kubernetes
+  shell: '/usr/bin/apt-get update;/usr/bin/apt-get install -y kubelet kubeadm kubectl;/usr/bin/apt-mark hold kubelet kubeadm kubectl'
+  become: yes
+
+- name: arranque de servicio kubelet
+  systemd:
+    name: kubelet
+    state: started
+    enabled: yes
+    masked: no
+  become: yes
+

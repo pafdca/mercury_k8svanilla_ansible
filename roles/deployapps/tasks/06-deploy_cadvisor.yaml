@@ -1,0 +1,16 @@
+---
+
+# Despliegue de cadvisor
+
+- name: creacion de namespace
+  shell: "/usr/bin/kubectl create namespace cadvisor"
+  become: yes
+
+- name: repo
+  shell: "/usr/local/bin/helm repo add ckotzbauer https://ckotzbauer.github.io/helm-charts && /usr/local/bin/helm repo update"
+  become: yes
+
+- name: desplegue
+  shell: "/usr/local/bin/helm install cadvisor ckotzbauer/cadvisor --namespace cadvisor"
+  become: yes
+

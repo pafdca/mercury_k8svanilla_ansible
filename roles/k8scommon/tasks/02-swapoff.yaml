@@ -1,0 +1,14 @@
+---
+
+# Desactivación de swap
+
+- name: swapoff
+  command: "/sbin/swapoff -a"
+  become: yes
+
+- name: eliminacion swap de /etc/fstab
+  lineinfile:
+    dest: /etc/fstab
+    state: absent
+    regexp: '^/dev/mapper.*swap.*$'
+  become: yes

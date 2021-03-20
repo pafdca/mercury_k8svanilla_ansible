@@ -1,0 +1,8 @@
+---
+
+- name: installing k8sSDN
+  hosts: all
+  vars_files:
+  gather_facts: false
+  roles:
+    - k8sSDN

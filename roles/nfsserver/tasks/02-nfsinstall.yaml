@@ -1,0 +1,9 @@
+---
+
+# NFS: Instalación de paquetes necesarios
+- name: instalando paquetes NFS
+  dnf:
+    name: "{{ nfsserver_rpms }}"
+    state: present
+  become: yes
+

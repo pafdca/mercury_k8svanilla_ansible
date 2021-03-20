@@ -1,0 +1,8 @@
+---
+
+# Despliegue de dashboard
+# Las definiciones se cargan desde repositorio personal de GitHub,
+# el servicio se ha cambiado a NodePort para poder acceder desde fuera del Master
+- name: Desplegue de dashboard
+  shell: "/usr/bin/kubectl apply -f deploy/dashboard.yaml"
+  become: yes

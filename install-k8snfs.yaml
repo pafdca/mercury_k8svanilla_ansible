@@ -1,0 +1,11 @@
+---
+
+- name: installing k8snfs
+  hosts: all
+  vars_files:
+    - "group_vars/common.yaml"
+    - "group_vars/nfsserver.yaml"
+  gather_facts: false
+  roles:
+    - common
+    - nfsserver

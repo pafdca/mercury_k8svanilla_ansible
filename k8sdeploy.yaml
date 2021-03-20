@@ -1,0 +1,8 @@
+---
+
+- name: deploy k8s apps
+  hosts: all
+  vars_files:
+  gather_facts: false
+  roles:
+    - deployapps

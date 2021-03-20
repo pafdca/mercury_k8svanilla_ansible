@@ -1,0 +1,16 @@
+---
+
+# Despliegue de kube-state-metrics
+
+- name: creacion de namespace
+  shell: "/usr/bin/kubectl create namespace kube-state-metrics"
+  become: yes
+
+- name: repo 
+  shell: "/usr/local/bin/helm repo add bitnami https://charts.bitnami.com/bitnami helm repo update && /usr/local/bin/helm repo update"
+  become: yes
+
+- name: desplegue
+  shell: "/usr/local/bin/helm install kube-state-metrics bitnami/kube-state-metrics --namespace kube-state-metrics"
+  become: yes
+

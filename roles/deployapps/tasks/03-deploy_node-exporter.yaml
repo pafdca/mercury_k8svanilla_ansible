@@ -1,0 +1,16 @@
+---
+
+# Despliegue de node-exporter
+
+- name: creacion de namespace
+  shell: "/usr/bin/kubectl create namespace node-exporter"
+  become: yes
+
+- name: repo
+  shell: "/usr/local/bin/helm repo add prometheus-community https://prometheus-community.github.io/helm-charts && /usr/local/bin/helm repo update"
+  become: yes
+
+- name: desplegue
+  shell: "/usr/local/bin/helm install node-exporter prometheus-community/prometheus-node-exporter --namespace=node-exporter"
+  become: yes
+

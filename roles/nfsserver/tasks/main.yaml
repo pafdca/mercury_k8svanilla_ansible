@@ -1,0 +1,6 @@
+---
+
+- include_tasks: 01-nfsfilesystem.yaml
+- include_tasks: 02-nfsinstall.yaml
+- include_tasks: 03-nfsservice.yaml
+- include_tasks: 04-nfsexports.yaml

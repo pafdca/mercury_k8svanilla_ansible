@@ -1,0 +1,16 @@
+---
+
+# Despliegue de kube-eagle
+
+- name: creacion de namespace
+  shell: "/usr/bin/kubectl create namespace kube-eagle"
+  become: yes
+
+- name: repo
+  shell: "/usr/local/bin/helm repo add kube-eagle https://raw.githubusercontent.com/cloudworkz/kube-eagle-helm-chart/master && /usr/local/bin/helm repo update"
+  become: yes
+
+- name: desplegue
+  shell: "/usr/local/bin/helm install kube-eagle kube-eagle/kube-eagle --namespace=kube-eagle"
+  become: yes
+

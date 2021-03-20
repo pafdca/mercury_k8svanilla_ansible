@@ -1,0 +1,9 @@
+---
+
+# Dashboard
+- include_tasks: 01-deploy_metrics-server.yaml
+- include_tasks: 02-deploy_dashboard.yaml
+- include_tasks: 03-deploy_node-exporter.yaml
+- include_tasks: 04-deploy_kube-eagle.yaml
+- include_tasks: 05-deploy_kube-state-metrics.yaml
+- include_tasks: 06-deploy_cadvisor.yaml

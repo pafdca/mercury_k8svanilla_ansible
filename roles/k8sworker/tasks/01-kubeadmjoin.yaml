@@ -1,0 +1,8 @@
+---
+
+# Worker: Ingreso de nodo en k8s.
+# La variable kubeadmjoin se genera dinámicamente desde script k8s_install.sh
+- name: kubeadm join
+  shell: "{{ kubeadmjoin }}"
+  become: yes
+

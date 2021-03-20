@@ -1,0 +1,8 @@
+---
+
+# Issue
+
+- name: banner
+  shell: '/usr/bin/banner mercury > /etc/issue.net'
+  become: yes
+

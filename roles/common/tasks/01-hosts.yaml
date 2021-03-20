@@ -1,0 +1,15 @@
+---
+
+# /etc/hosts
+
+# Para nuevas entradas, modificar la variable etc_hosts
+- name: actualización de /etc/hosts
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item }}"
+    backup: yes
+    create: yes
+  with_items:
+    - "{{ etc_hosts }}"
+  become: yes
+

@@ -1,0 +1,15 @@
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=mercuryadmin
+
+[master]
+10.150.0.10 # master
+
+[workers]
+10.150.0.11 # worker01
+10.150.0.12 # worker02
+10.150.0.13 # worker03
+
+[nfs]
+10.150.0.200 # nfs
+

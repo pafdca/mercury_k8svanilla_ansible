@@ -1,0 +1,8 @@
+---
+
+# Actualización de paquetes de sistema
+
+- name: Update packages
+  command: "/usr/bin/apt-get -f upgrade"
+  become: yes
+

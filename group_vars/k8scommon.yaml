@@ -1,0 +1,5 @@
+---
+ 
+# Paquetes para Docker
+docker_rpms: ['docker-ce-19.03.14-3.el8', 'containerd.io']
+

@@ -1,0 +1,24 @@
+---
+
+# Ajuste de parámetros del kernel para k8s
+- name: creacion de fichero para parametros sysctl de k8s
+  file:
+    path: "/etc/sysctl.d/k8s.conf"
+    state: touch
+    mode: 0644
+    owner: root
+  become: yes
+
+- name: parametros sysctl para k8s 
+  lineinfile:
+    dest: /etc/sysctl.d/k8s.conf
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: '^net.bridge.bridge-nf-call-ip6tables', line: 'net.bridge.bridge-nf-call-ip6tables = 1' }
+    - { regexp: '^net.bridge.bridge-nf-call-iptables', line: 'net.bridge.bridge-nf-call-iptables = 1' }
+  become: yes
+
+- name: aplicacion de cambios sysctl
+  shell: "/sbin/sysctl --system"
+  become: yes

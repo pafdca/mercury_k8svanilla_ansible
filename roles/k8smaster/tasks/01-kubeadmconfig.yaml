@@ -1,0 +1,7 @@
+---
+
+# Pull de imágenes de Kubernetes Vanilla
+- name: kubeadm
+  shell: "/usr/bin/kubeadm config images pull"
+  become: yes
+

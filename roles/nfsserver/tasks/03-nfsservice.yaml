@@ -1,0 +1,11 @@
+---
+
+# Habilitación de servicio NFS
+- name: configurando el arranque de servidor NFS
+  systemd:
+    name: nfs-server
+    state: started
+    enabled: yes
+    masked: no
+  become: yes
+

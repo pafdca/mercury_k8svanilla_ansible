@@ -1,0 +1,8 @@
+---
+
+- include_tasks: 01-hosts.yaml
+- include_tasks: 02-packages.yaml
+- include_tasks: 03-banner.yaml
+- include_tasks: 04-update.yaml
+- include_tasks: 05-timezone.yaml
+- include_tasks: 06-ntp.yaml

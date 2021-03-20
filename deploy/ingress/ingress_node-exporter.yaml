@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: node-exporter
+  namespace: node-exporter
+spec:
+  rules:
+  - host: node-exporter
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: node-exporter-prometheus-node-exporter
+          servicePort: 9100
+

@@ -1,0 +1,5 @@
+---
+
+# Esta variable se actualiza dinámicamente desde el script k8s_install.sh, no es necesario modificarla
+kubeadmjoin: '/usr/bin/kubeadm join 10.150.0.10:6443 --token fd40k7.chjkgyruth2arz3l 
+    --discovery-token-ca-cert-hash sha256:18b55c02a5bf97a08d4d0340772760638ac43103150dddc3d114fe218de04caf '

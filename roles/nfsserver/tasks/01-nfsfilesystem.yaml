@@ -1,0 +1,48 @@
+---
+
+# NOTA: SE COMENTA LO QUE NO ES NECESARIO EN LA PRACTICA
+# PROBADA LA CREACIÓN DE PV, VG y LV EN LOCAL
+
+#- name: creacion de vg para datos NFS
+#  lvg:
+#    vg: data_vg
+#    pvs: /dev/sdb
+#  become: yes
+
+#- name: creacion de lv para datos NFS
+#  lvol:
+#    vg: data_vg
+#    lv: nfs_lv
+#    size: +100%FREE
+#    force: yes
+#    state: present
+#  become: yes
+
+#- name: formateo de filesystem para datos NFS
+#  filesystem:
+#    fstype: xfs
+#    dev: /dev/data_vg/nfs_lv
+#    force: yes
+#  become: yes
+
+# Creación de directorio de destino y permisos
+- name: creacion de directorio de destino
+  file:
+    path: /srv/nfs
+    state: directory
+    # UID y GID coinciden con usuario de aplicación desplegada
+    owner: 1000
+    group: 1000
+    mode: '0755'
+  become: yes
+
+#- name: actualizacion de fstab
+#  lineinfile:
+#        path: /etc/fstab
+#        line: '/dev/data_vg/nfs_lv        /srv/nfs                xfs     defaults        0 0'
+#  become: yes
+
+#- name: montaje de filesystems
+#  command: "/usr/bin/mount -a"
+#  become: yes
+

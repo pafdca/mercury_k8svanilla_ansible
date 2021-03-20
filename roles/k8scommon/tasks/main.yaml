@@ -1,0 +1,6 @@
+---
+
+- include_tasks: 01-k8ssysctl.yaml
+- include_tasks: 02-swapoff.yaml
+- include_tasks: 03-docker.yaml 
+- include_tasks: 04-k8sinstall.yaml

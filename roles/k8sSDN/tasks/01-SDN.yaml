@@ -1,0 +1,64 @@
+---
+
+###############################################################
+# SDN: Calico for policy and flannel (aka Canal) for networking
+###############################################################
+
+- name: descarga de fichero de definición
+  get_url:
+    url: https://docs.projectcalico.org/manifests/canal.yaml
+    dest: /root
+    mode: '0440'
+  become: yes
+
+# Despliegue de SDN
+- name: instalacion de Canal
+  shell: "/usr/bin/kubectl apply -f /root/canal.yaml"
+  become: yes
+
+
+###############
+# SDN: Cilium
+###############
+
+#- name: descarga de fichero de definición para Cilium
+#  get_url:
+#    url: https://raw.githubusercontent.com/cilium/cilium/v1.9/install/kubernetes/quick-install.yaml
+#    dest: /root
+#    mode: '0440'
+#  become: yes
+#
+#- name: cambio de cidr
+#  shell: '/usr/bin/sed -i "s,10.0.0.0/8,192.169.0.0/16,g" /root/quick-install.yaml'
+#  become: yes
+
+## instalacion de Cilium
+#- name: instalacion de Cilium
+#  shell: "/usr/bin/kubectl apply -f /root/quick-install.yaml"
+#  become: yes
+
+
+###############
+# SDN: Calico
+###############
+
+
+#- name: instalacion de operador Tigera
+#  shell: "/usr/bin/kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml"
+#  become: yes
+#
+#- name: descarga de fichero de definicion para Calico
+#  get_url:
+#    url: https://docs.projectcalico.org/manifests/custom-resources.yaml
+#    dest: /root
+#    mode: '0440'
+#  become: yes
+#
+#- name: cambio de cidr
+#  shell: '/usr/bin/sed -i "s,192.168.0.0/16,10.0.0.0/16,g" /root/custom-resources.yaml'
+#  become: yes
+#
+#- name: instalacion de Calico
+#  shell: "/usr/bin/kubectl apply -f /root/custom-resources.yaml"
+#  become: yes
+

@@ -1,0 +1,7 @@
+---
+
+# Instalación de Helm
+- name: instalacion de Helm
+  shell: '/usr/bin/curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | /bin/bash'
+  become: yes
+

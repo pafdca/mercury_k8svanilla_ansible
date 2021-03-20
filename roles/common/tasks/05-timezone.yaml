@@ -1,0 +1,6 @@
+---
+ 
+# Ajuste de zona horaria
+- name: Set timezone
+  command: /usr/bin/timedatectl set-timezone Europe/Madrid
+  become: yes

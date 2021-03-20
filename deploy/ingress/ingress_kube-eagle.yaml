@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: kube-eagle
+  namespace: kube-eagle
+spec:
+  rules:
+  - host: kube-eagle
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kube-eagle
+          servicePort: 8080
+

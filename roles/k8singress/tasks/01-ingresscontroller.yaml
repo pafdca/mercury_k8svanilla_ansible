@@ -1,0 +1,7 @@
+---
+
+# Ingress Controller: haproxy-ingress
+- name: Instalacion de ingress controller
+  shell: "/usr/bin/kubectl apply -f https://raw.githubusercontent.com/haproxytech/kubernetes-ingress/v1.5/deploy/haproxy-ingress.yaml"
+  become: yes
+

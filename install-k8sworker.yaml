@@ -1,0 +1,14 @@
+---
+
+- name: installing k8sworker
+  hosts: all
+  vars_files:
+    - "group_vars/common.yaml"
+    - "group_vars/k8scommon.yaml"
+    - "group_vars/k8sworker.yaml"
+  gather_facts: false
+  roles:
+    - common
+    - k8scommon
+    - k8sworker
+

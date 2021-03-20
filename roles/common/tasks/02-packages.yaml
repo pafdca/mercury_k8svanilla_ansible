@@ -1,0 +1,8 @@
+---
+
+# Instalación de paquetes de sistema y actualización
+
+- name: install packages
+  shell: "/usr/bin/apt-get update; /usr/bin/apt-get install -y chrony nmap elinks net-tools jq nfs-common nfs4-acl-tools wget sysvbanner telnet screen"
+  become: yes
+

@@ -1,0 +1,6 @@
+---
+
+# Habilitación de sincronización horaria
+- name: enable NTP
+  command: /usr/bin/timedatectl set-ntp true
+  become: yes

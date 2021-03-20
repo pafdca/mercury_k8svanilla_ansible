@@ -1,0 +1,26 @@
+---
+
+# Instalación de CNI, se recoge la salida del comando en KUBE_CNI_INIT_OUT
+- name: instalacion de CNI
+  command: '/usr/bin/kubeadm init --pod-network-cidr 192.169.0.0/16'
+  register: KUBE_CNI_INIT_OUT
+  become: yes
+
+# Configuración para que usuario root pueda administrar k8s
+- name: creacion de directorio /root/.kube
+  file:
+    path: /root/.kube
+    state: directory
+  become: yes
+
+- name: Fichero de configuracion para autorizar a root
+  shell: '/bin/cp -i /etc/kubernetes/admin.conf /root/.kube/config; chown $(id -u):$(id -g) /root/.kube/config'
+  become: yes
+
+# Se copia salida de instalación de CNI al fichero kubeadm_CNI_init.out dentro del directorio out
+# Con esto tenemos el comando necesario para que los workers puedan ingresar en k8s
+- name: Copia salida de instalación de CNI en un fichero
+  copy:
+        content: "{{ KUBE_CNI_INIT_OUT.stdout }}"
+        dest: "out/kubeadm_CNI_init.out"
+  delegate_to: localhost

@@ -1,0 +1,18 @@
+---
+
+# Configuración de /etc/exports
+
+# Para autorizar nuevos clientes, modificar la variable nfs_clients
+- name: Configuración de /etc/exports
+  lineinfile:
+    path: /etc/exports
+    line: '/srv/nfs {{item}}(rw,sync)'
+    backup: yes
+    create: yes
+  with_items: 
+    - "{{ nfs_clients }}"
+  become: yes
+
+- name: Aplicación de nueva configuracion
+  shell: "/usr/sbin/exportfs -r; /usr/sbin/exportfs -s"
+  become: yes
