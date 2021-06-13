@@ -7,3 +7,4 @@
 - include_tasks: 04-deploy_kube-eagle.yaml
 - include_tasks: 05-deploy_kube-state-metrics.yaml
 - include_tasks: 06-deploy_cadvisor.yaml
+- include_tasks: 07-deploy_prometheus.yaml
