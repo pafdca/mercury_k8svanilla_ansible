@@ -1,0 +1,7 @@
+---
+
+# Despliegue de Prometheus
+# Las definiciones se cargan desde repositorio de GitHub,
+- name: Desplegue de Prometheus
+  shell: "https://raw.githubusercontent.com/pafdca/mercury_k8svanilla_ansible/master/roles/deployapps/tasks/06-deploy_prometheus.yaml?token=ASESZ5TUW3W2M6R57SXGT3LAYZL6K"
+  become: yes

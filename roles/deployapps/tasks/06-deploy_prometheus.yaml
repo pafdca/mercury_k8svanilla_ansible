@@ -1,7 +1,0 @@
----
-
-# Despliegue de Prometheus
-# Las definiciones se cargan desde repositorio de GitHub,
-- name: Desplegue de dashboard
-  shell: "/usr/bin/kubectl apply -f https://raw.githubusercontent.com/pafdca/mercury_k8svanilla_ansible/master/deploy/dashboard.yaml?token=ASESZ5V3IXJR3T76V7UVT2DAKWCBO"
-  become: yes
